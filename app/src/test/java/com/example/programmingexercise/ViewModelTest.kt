@@ -3,7 +3,7 @@ package com.example.programmingexercise
 import com.example.programmingexercise.data.CountryRepo
 import com.example.programmingexercise.data.local.Country
 import com.example.programmingexercise.data.remote.ResultState
-import com.example.programmingexercise.presentation.CountryViewModel
+import com.example.programmingexercise.presentation.viewmodel.CountryViewModel
 import com.example.programmingexercise.util.CoroutinesExtension
 import com.example.programmingexercise.util.InstantTaskExecutorExtension
 import io.mockk.coEvery

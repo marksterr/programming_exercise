@@ -1,4 +1,4 @@
-package com.example.programmingexercise.presentation
+package com.example.programmingexercise.presentation.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,11 +9,13 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.programmingexercise.R
 import com.example.programmingexercise.data.CountryRepo
 import com.example.programmingexercise.data.remote.NetworkProvider
 import com.example.programmingexercise.data.remote.ResultState
 import com.example.programmingexercise.databinding.FragmentCountryBinding
+import com.example.programmingexercise.presentation.adapter.CountryAdapter
+import com.example.programmingexercise.presentation.viewmodel.CountryViewModel
+import com.example.programmingexercise.presentation.viewmodel.CountryViewModelFactory
 
 class CountryFragment : Fragment() {
 

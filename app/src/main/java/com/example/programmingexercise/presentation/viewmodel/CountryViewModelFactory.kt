@@ -1,4 +1,4 @@
-package com.example.programmingexercise.presentation
+package com.example.programmingexercise.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
