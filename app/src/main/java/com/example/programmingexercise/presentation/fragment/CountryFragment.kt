@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.programmingexercise.data.CountryRepo
 import com.example.programmingexercise.data.remote.NetworkProvider
 import com.example.programmingexercise.data.remote.ResultState
+import com.example.programmingexercise.data.util.NullResponse
 import com.example.programmingexercise.databinding.FragmentCountryBinding
 import com.example.programmingexercise.presentation.adapter.CountryAdapter
 import com.example.programmingexercise.presentation.viewmodel.CountryViewModel
@@ -48,7 +49,7 @@ class CountryFragment : Fragment() {
                         }
                         is ResultState.Error -> {
                             // Show an error message based on resultState.exception
-                            Toast.makeText(context, "Error fetching data", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, NullResponse().toString(), Toast.LENGTH_SHORT).show()
                         }
                         ResultState.Loading -> {
                             // Show a loading indicator if needed
