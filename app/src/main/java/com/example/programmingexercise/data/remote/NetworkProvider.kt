@@ -6,6 +6,9 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType
 import retrofit2.Retrofit
 
+/**
+ * Singleton object to provide network-related components.
+ */
 object NetworkProvider {
 
     private val mediaType = MediaType.get("application/json")
@@ -17,13 +20,15 @@ object NetworkProvider {
         explicitNulls = false
     }
 
-    val retrofit: Retrofit by lazy {
+    // Lazily initialize Retrofit. This ensures that the instance is created only when needed.
+    private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
             .baseUrl("https://gist.githubusercontent.com/")
             .addConverterFactory(providesJson().asConverterFactory(mediaType))
             .build()
     }
 
+    // Provide a single instance of the API service across the app.
     val apiService: APIService by lazy {
         retrofit.create(APIService::class.java)
     }

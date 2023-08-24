@@ -17,6 +17,9 @@ import com.example.programmingexercise.presentation.adapter.CountryAdapter
 import com.example.programmingexercise.presentation.viewmodel.CountryViewModel
 import com.example.programmingexercise.presentation.viewmodel.CountryViewModelFactory
 
+/**
+ * Fragment responsible for displaying a list of countries.
+ */
 class CountryFragment : Fragment() {
 
     private var _binding: FragmentCountryBinding? = null
@@ -31,7 +34,7 @@ class CountryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragment and set up data binding.
         return FragmentCountryBinding.inflate(inflater, container, false).apply {
             _binding = this
             val adapter = CountryAdapter()
@@ -56,5 +59,11 @@ class CountryFragment : Fragment() {
             binding.rvCountries.adapter = adapter
             binding.rvCountries.layoutManager = LinearLayoutManager(requireContext())
         }.root
+    }
+
+    // Avoid memory leaks by setting _binding to null when the fragment's view is destroyed.
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
