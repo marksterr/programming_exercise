@@ -25,6 +25,10 @@ class CountryViewModel(private val repo: CountryRepo) : ViewModel() {
     // Fetch countries from the repo and update LiveData.
     fun getCountries() = viewModelScope.launch {
         _countries.value = ResultState.Loading
-        _countries.value = repo.getCountries()
+        try {
+            _countries.value = repo.getCountries()
+        } catch (e: Exception) {
+            _countries.value = ResultState.Error(e)
+        }
     }
 }

@@ -70,4 +70,12 @@ internal class RepoTest {
         val errorResult = result as ResultState.Error
         assertEquals(exceptionMessage, errorResult.exception.message)
     }
+
+    @Test
+    fun testGetCountriesEmptyResponse() = runTest(testExtension.testDispatcher) {
+        coEvery { service.getCountries() } coAnswers { emptyList() }
+        val result = repo.getCountries()
+        assertTrue(result is ResultState.Success)
+        assertTrue((result as ResultState.Success).data.isEmpty())
+    }
 }
